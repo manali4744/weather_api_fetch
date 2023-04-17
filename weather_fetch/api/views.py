@@ -4,13 +4,14 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import *
 import requests
-
+import os
 
 
 # Create your views here.
 def get_data_weather(data):
     BASE_URL = "https://demo.openweathermap.org/energy/1.0/solar/data?"
-    API_KEY = "8f3f3bfa1f66c8879ef015dfb95c801b"
+    
+    API_KEY = os.environ['API_KEY']
     LAT = str(data['lat'])
     LONG = str(data['long'])
     DATE = str(data['Date'])
